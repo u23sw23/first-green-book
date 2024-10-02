@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>社区论坛</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+.comments-container{
+    background-color: aliceblue;
+    width:1100px;
+    height:250px;
+    border-radius: 10px;
+}
+
+.no_gab{
+    display: inline-block; /* 或者 inline */
+    margin-right: 20px; 
+}
+
+#comment{
+    width:1100px;
+    height:80px;
+}
+
+#button_comment{
+    width:100px;
+    height:30px;
+    background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
+    border-radius: 10px;
+}
+
+
+
+    </style>
+</head>
+<body class="body-type4">
+    <header>
+        <div class="logo"><img src='public/宠物绿皮书.ico' alt='Lago' class="logo-icon"><h2>宠物绿皮书</h2></div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="搜索...">
+            <div id="search-index" class="search-index"></div>
+        </div>
+    </header>
+    <h2>网友留言</h2>
+    <div class="comments-container" id="comments-container"></div>
+        <!-- 用户评论将显示在这里 -->
+    </div>
+    <div id="comments-form">
+        <label for="username">用户名:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="comment">评论:</label>
+        <textarea class="no_gab" id="comment" name="comment" required></textarea><br><br> 
+        <button class='no_gab' id='button_comment' onclick="submitComment();">提交评论</button></div>
+    </div>
+
+    <button class="return" onclick="window.location.href='主页.html'">返回主页</div>
+        
+    <script>
+function submitComment() {
+    var username = document.getElementById('username').value;//DOM操作
+    var comment = document.getElementById('comment').value;
+    if (username && comment) { 
+        // 创建一个新的评论元素
+        var newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.innerHTML = '<p><strong>' + username + ':</strong> ' + comment + '</p>';
+        // 将新评论添加到评论区域
+        document.getElementById('comments-container').appendChild(newComment);
+        // 清空表单
+        document.getElementById('username').value = '';
+        document.getElementById('comment').value = '';
+    } else {
+        alert('请填写用户名和评论！');
+    }
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主页</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        
+.file-block {
+    width:70px;
+    height:30px;
+    padding: 10px 20px; /* 添加内边距 */
+    background-color: #eda052; /* 设置背景颜色 */
+    color: white; /* 设置文字颜色 */
+    border-radius: 5px; 
+    cursor: pointer; /* 鼠标在之上时候将鼠标指针设置为点击状态 */
+    font-size: 13px;
+}
+
+    </style>
+</head>
+<body class="body-type2">
+<div class="all">
+    <header>
+        <div class="logo"><img src='public/宠物绿皮书.ico' alt='Lago' class="logo-icon"><h2>宠物绿皮书</h2></div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="搜索...">
+            <div id="search-index" class="search-index"></div>
+        </div>
+    </header>
+    <main>
+        <section class="slider">
+            <div class="slides">
+                <img src="public/pic1.png" alt="Image 1">
+                <img src="public/pic2.png" alt="Image 2">
+                <img src="public/pic3.png" alt="Image 3">
+            </div>
+        </section>
+        <nav class="menu">
+            <div class="menu-item" data-target="热门推荐.html">热门推荐</div>
+            <div class="menu-item" data-target="周边地图.html">周边地图</div>
+            <div class="menu-item" data-target="宠物新闻.html">宠物新闻</div>
+            <div class="menu-item" data-target="关于我们.html">关于我们</div>
+        </nav>
+    </main>
+    <footer>
+        <div class="footer-item"><button class='button-change' onclick="window.location.href='社区论坛.html'">社区讨论</button></div>
+        <div class="footer-item"><button class='button-openslide'>我的账号</button></div>
+
+        <div id="sidebar" class="sidebar">
+            <button class="button-closeslide"><img src='public/叉号.ico' width=20px height=20px></button>
+            <div><h2>我的账号</h2></div>
+            <div class="avatar-upload-container">
+                <label for="avatarInput" class="file-block">点击这里选择头像</label>
+                <input type="file" id="avatarInput" accept="image/*" onchange="previewAvatar(this)" style="display: none;">
+                <img src="public/未填充头像.ico" id="avatarPreview" class="avatar-preview">
+            </div>
+            <div class="text-container">
+                <p>账号名称：</p>
+                <p>IP属地:广东</p>
+                <p>关注：</p>
+                <p>被关注：</p>
+                <p>获赞与收藏：</p>
+                <p>账号状态: 正常</p>
+                <p>注册日期: 2024-10-1</p>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script>
+    // 搜索推荐功能,还没做好
+    document.getElementById('search-input').addEventListener('click', function() {
+    const searchIndex = document.getElementById('search-index');
+    searchIndex.style.display = 'block';
+    // 这里可以添加搜索推荐的内容
+});
+
+// 轮播图功能
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    let slides = document.getElementsByClassName("slides")[0].children;
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}    
+    slides[slideIndex-1].style.display = "block";  
+    setTimeout(showSlides, 4000); // 每四秒转换一次
+}
+
+function previewAvatar(input) {    //从用户库里选择图片作为头像
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var preview = document.getElementById('avatarPreview');
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+// 四格菜单导航功能
+document.querySelectorAll('.menu-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // 根据 data-target 属性跳转到不同的页面或显示不同的内容
+        const target = item.getAttribute('data-target');
+        console.log('Navigate to:', target);
+        window.location.href=target;
+    });
+});
+//为什么不能使用getElementsByClassName?问题出在当尝试给一个类数组的第一个元素添加事件监听器？
+//因为使用 getElementsByClassName 会获取类名选择器的所有元素，它会返回一个 HTMLCollection，而不是单个元素
+//需要使用 document.querySelector 来获取第一个匹配的元素
+document.querySelector('.button-openslide').addEventListener('click', function() {
+    var sidebar = document.querySelector('.sidebar');
+    sidebar.classList.toggle('open');
+});
+
+document.querySelector('.button-closeslide').addEventListener('click', function() {
+    var sidebar = document.querySelector('.sidebar');
+    sidebar.classList.remove('open');
+});
+
+</script>
+</body>
+</html>

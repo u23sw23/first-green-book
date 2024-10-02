@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body{
+      background-image: url(public/主页壁纸2.png);
+      margin:5px;
+      padding:0;
+      font-family:'华文中宋';
+      font-size:18px;
+      width:100%;
+      height:100%;
+    }
+
+    header{
+      background-image: linear-gradient(to right,#4240ad,#09eefa);
+      height:80px;
+      display:flex;
+      justify-content: center; /* 水平居中:一旦使用了flex的display就不能再用text-align表示水平居中了，要用这个justify-content*/
+      align-items: center; /* 垂直居中 */
+    }
+
+    h1{
+      font-size: 30px;
+    }
+
+    .k1{
+      display: flex; /* 启用 Flex布局 */
+      flex-wrap: wrap; /* 允许子元素换行 */
+      gap: 20px; /* 子元素之间的空隙 */
+      justify-content: center; /* 子元素水平居中 这也没有居中啊？*/
+      margin-left: 20px;
+      margin-top:20px;
+    }
+
+    .k2{
+      width: 100%;
+      justify-content: center;
+    }
+
+  .content-box {
+    border: 2px solid #000; /* 设置边框样式，黑色实线 */
+    padding: 20px; 
+    margin: 20px; 
+    background-color: #6bd7ea; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 可选的阴影效果 */
+}
+
+  </style>
+</head>
+<body>
+  <header>
+      <h1>宠物新闻/资讯</h1>
+  </header>
+  <div class="content-box">
+  <div class="k1"><!--使用target="_blank"新建一个页面而不占用原来的页面-->
+    <div class="k2"><a href="https://www.foshannews.net/h/182/20240506/708460.html" target="_blank">佛山爱犬日启动，开放首个文明遛犬口袋公园</a></div>
+    <div class="k2"><a href="https://news.cctv.com/2023/06/08/ARTI2TsTcWUSSKPXaJYlvlY3230608.shtml" target="_blank">花“天价”让宠物“复活”？当克隆宠物成了一门生意</a></div>
+    <div class="k2"><a href="https://zhuanlan.zhihu.com/p/470368950" target="_blank">20种常见猫优缺点大合集,选猫看这篇就够了</a></div>
+    <div class="k2"><a href="https://www.pmshe.com/1578.html" target="_blank">第一次养鹦鹉养哪种好?5 种推荐新手饲养的鹦鹉品种</a></div>
+    <div class="k2"><a href="https://news.cctv.com/2021/09/09/ARTIzneJDg9RIuyADUh2ZnK1210909.shtml" target="_blank">文明养宠物 我们一起来</a></div>
+    <div class="k2"><a href="https://www.thepaper.cn/newsDetail_forward_14492252" target="_blank">年轻人带动宠物经济蓬勃发展：一沾“宠”字，什么都贵</a></div>
+  </div>
+  </div>
+  <button class="return" onclick="window.location.href='主页.html'">返回主页</div>
+  </body>
+</html>

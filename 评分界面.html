@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评分界面</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="rating-container">
+        <h2>评分：</h2>
+        <div class="stars">
+            <img src="public/星星图标.ico" class="star" data-value="1">
+            <img src="public/星星图标.ico" class="star" data-value="2">
+            <img src="public/星星图标.ico" class="star" data-value="3">
+            <img src="public/星星图标.ico" class="star" data-value="4">
+            <img src="public/星星图标.ico" class="star" data-value="5">
+        </div>
+        <div id="average-score">平均分：--</div>
+    </div>
+    <div class="comments-container">
+        <div class="comments">
+            <!-- 用户评论将显示在这里 -->
+        </div>
+        <textarea id="comment-box" placeholder="添加评论..."></textarea>
+        <button id="submit-comment">提交评论</button>
+        <button id="clear-comments">清除评论</button>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const stars = document.querySelectorAll('.star');
+    let scores = [];
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            stars.forEach(s => {
+                s.src = s.dataset.value <= star.dataset.value ? 'star-filled.png' : 'star-empty.png';
+            });
+            scores = stars.map(s => parseInt(s.dataset.value, 10));
+            document.getElementById('average-score').textContent = `平均分：${scores.reduce((a, b) => a + b, 0) / scores.length}`;
+        });
+    });
+    document.getElementById('submit-comment').addEventListener('click', function() {
+        const commentBox = document.getElementById('comment-box');
+        const commentsContainer = document.querySelector('.comments');
+        const newComment = document.createElement('div');
+        newComment.classList.add('comment');
+        newComment.textContent = commentBox.value;
+        commentsContainer.appendChild(newComment);
+        commentBox.value = '';
+    });
+    document.getElementById('clear-comments').addEventListener('click', function() {
+        document.querySelector('.comments').innerHTML = '';
+    });
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>注册界面</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body-type3">
+    <div class="frame1">
+        <div>
+            <h2>宠物绿皮书注册</h2>
+            你设置的账号是：
+            <input type="text" id="username"/>
+        </div>
+        <div>
+            你设置的密码是：
+            <input type="text" id="password"/>
+        </div>
+        <button id='button-register' onclick="toreturn()">确认设置</button>
+    </div>
+    <script>
+        function toreturn() {
+            alert("账号密码保存成功，请记住它们")
+            var username1 = document.getElementById("username").value;
+            var password1 = document.getElementById("password").value;
+            localStorage.setItem("username",username1);
+            localStorage.setItem("password", password1);
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>
