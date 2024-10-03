@@ -1,5 +1,5 @@
-body {  /*这里存储着几乎所有界面的css样视*/
-    min-height: 100vh; /* 这里面放所有界面都通用的东西*/
+body {  /*这里存储着几乎所有界面的css样视 我的平板电脑上横1260px 纵660px*/
+    min-height: 100vh; /* 这里面放所有界面都通用的东西*  vh相对视口高度 vw相对视口宽度 %相对父元素的尺寸*/
     font-family: "华文中宋";
 }
 
@@ -17,9 +17,9 @@ body {  /*这里存储着几乎所有界面的css样视*/
     background-position: center;
     margin:0;
     padding:0;
-    margin-left: 8px;
-    margin-right: 8px;
-    width:100%;
+    margin-left: 0.6vw;
+    margin-right: 0.6vw;
+    width:100vw;
     height:auto;
     font-family: '华文中宋';/*代表着在这个界面中如果没有特殊声明，所有字都用这种字体*/
     font-size: 18px;
@@ -35,7 +35,7 @@ body {  /*这里存储着几乎所有界面的css样视*/
     background-image: url('public/注册界面图片.png');
     background-size: cover;
     background-position: center;
-    height:100%;
+    height:100vh;
     position: relative;  
 }
 
@@ -43,7 +43,7 @@ body {  /*这里存储着几乎所有界面的css样视*/
     background-image: url('public/社区壁纸.png');
     background-size: cover;
     background-position: center;
-    height:100%;
+    height:100vh;
     position: relative;  
 }
 
@@ -66,18 +66,18 @@ header {
 
 .logo-icon{
     margin-left: 8px;
-    height: 50px; 
+    height: 10vh; 
     width: auto; /* 保持图标比例 */
     margin-right: 10px; 
     border-radius: 10px;
 }
 
-.return{
+.return{  /*返回主页按钮*/
     position:absolute;
-    top:600px;
+    top:88vh;
     right:10px;
-    width:50px;
-    height:50px;
+    width:4vw;
+    height:7.5vh;
     border-radius: 10px;
     background-image: linear-gradient(to right,#5f7cffd8, #5f177e71);
 }
@@ -91,8 +91,8 @@ header {
     justify-self: center;
     background-image:linear-gradient(to right,#5f7cffd8, #5f177e71);
 	color:white;
-	width: 100px;
-	height: 30px;
+	width: 8vw;
+	height: 4.5vh;
 	border:0;
 	font-size: 16px;
 	box-sizing: content-box;				
@@ -104,8 +104,8 @@ header {
     justify-self: center;
     background-image:linear-gradient(to right,#4486bcd8, #28c6db71);
 	color:rgb(0, 0, 0);
-	width: 80px;
-	height: 20px;
+	width: 6.3vw;
+	height: 3vh;
 	border:0;
 	font-size: 16px;
 	box-sizing: content-box;				
@@ -127,8 +127,8 @@ footer {
 .button-openslide{
     background-image:linear-gradient(to right,#1b8d91d8, #7a91eb71);
     color:rgb(0, 0, 0);
-    width: 120px;
-    height: 45px;
+    width: 9.5vw;
+    height: 6.8vh;
     border:0;
     font-size: 16px;			
     border-radius: 10px;
@@ -137,8 +137,8 @@ footer {
 .button-change{
     background-image:linear-gradient(to right,#44bc94d8, #7a91eb71);
     color:rgb(0, 0, 0);
-    width: 120px;
-    height: 45px;
+    width: 9.5vw;
+    height: 6.8vh;
     border:0;
     font-size: 16px;			
     border-radius: 10px;
@@ -159,7 +159,7 @@ footer {
     object-fit: cover; /* 保证图片覆盖整个容器 */
     object-position: 50% 80%; /* 将图片的中心点对齐到容器的中心点 */
     width: 66%;
-    height:380px;
+    height:57vh;
     margin-left:15%;
     margin-top:1%;
     overflow:hidden;/*如果文本超出了 .container 的宽度，超出的部分将被隐藏*/
@@ -217,8 +217,8 @@ footer {
 
 .frame1 {
     text-align: center;
-    top:250px;
-    left:455px;
+    top:37.8vh;
+    left:36.1vw;
     position: absolute;
     transform: scale(1.2);  /*将整个内容都放大1.2倍*/
     background-color: rgba(134, 222, 178, 0.8); /* 边框背景80% 的透明度 */  
@@ -254,7 +254,7 @@ footer {
 }
 
 .slider-logo {
-    max-width: 150px; 
+    max-width: 12vw; 
     height: auto;
 }
 
@@ -278,7 +278,7 @@ footer {
 }
 
 .attraction-image {
-    width: 300px; 
+    width: 25.5vw; 
     height: auto;
     margin-right: 20px;
     border-radius: 6px;
@@ -298,8 +298,8 @@ footer {
 .button-openslide-fake{
     background-image:linear-gradient(to right,#5a44bcd8, #7a91eb71);
     color:rgb(0, 0, 0);
-    width: 120px;
-    height: 45px;
+    width: 9.5vw;
+    height: 6.8vh;
     border:0;
     font-size: 16px;			
     border-radius: 10px;
@@ -307,12 +307,12 @@ footer {
 
 .stars img {
     cursor: pointer;
-    width: 50px; 
+    width: 5vw; 
 }
 
 .comments-container {
     overflow-y: auto; /* 允许垂直滚动 */
-    height: 300px; 
+    height: 45.5vh; 
     margin-bottom: 20px;
 }
 
@@ -324,7 +324,7 @@ footer {
 #comment-box {
     margin-left: 5px;
     width: 90%;
-    height: 100px;
+    height: 15.1vh;
     resize: none;
 }
 
@@ -347,7 +347,7 @@ button {
 }
 
 #mapContainer {    /*地图部分*/
-    width: 100%;
-    height: 650px; 
+    width: 100vw;
+    height: 100vh; 
 }
 
